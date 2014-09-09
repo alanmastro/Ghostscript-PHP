@@ -1,7 +1,7 @@
 {
-    "name": "alchemy/ghostscript",
+    "name": "meyfarth/ghostscript",
     "type": "library",
-    "description": "Ghostscript PDF, a library to handle PDF through ghostscript",
+    "description": "Forked and enhanced version of alchemy/ghostscript script",
     "keywords": ["ghostscript", "pdf"],
     "license": "MIT",
     "authors": [
@@ -14,6 +14,10 @@
             "name": "Phraseanet Team",
             "email": "info@alchemy.fr",
             "homepage": "http://www.phraseanet.com/"
+        },
+        {
+            "name": "Sébastien GARCIA",
+            "email" : "garcia.sebastien@hotmail.fr"
         }
     ],
     "require": {
