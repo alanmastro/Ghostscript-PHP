@@ -25,16 +25,17 @@ class Transcoder extends AbstractBinary
      * @param string  $input          The path to the input file.
      * @param string  $destinationThe path to the output file.
      * @param integer $res            resolution of the output
+     * @param string  $format         The output format. 'png16m' for png, 'jpeg' for jpeg
      * 
      * @return Transcoder
      *
      * @throws RuntimeException In case of failure
      */
-    public function toImage($input, $destination, $res = 200)
+    public function toImage($input, $destination, $res = 200, $format = 'png16m')
     {
         try {
             $this->command(array(
-                '-sDEVICE=jpeg',
+                '-sDEVICE='.$format,
                 '-dNOPAUSE',
                 '-dBATCH',
                 '-dSAFER',
