@@ -40,11 +40,11 @@ To render a file to Image, use the `toImage` method :
 $transcoder->toImage('document.pdf', 'output.jpg');
 ```
 
-To specify the output resolution :
+To specify the output resolution and format :
 
 ```php
-# 400 is a good quality. Default is 200.
-$transcoder->toImage('document.pdf', 'output.jpg', 400);
+# 400 is a good quality for jpeg. Default is 200. Default format is 'png16m'
+$transcoder->toImage('document.pdf', 'output.jpg', 400, 'jpeg');
 ```
 
 ## Silex service provider :
