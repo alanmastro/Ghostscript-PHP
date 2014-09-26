@@ -66,19 +66,24 @@ class Transcoder extends AbstractBinary
      *
      * @throws RuntimeException In case of failure
      */
-    public function toPDF($input, $destination, $pageStart, $pageQuantity)
+    public function toPDF($input, $destination, $pageStart = null, $pageQuantity = null)
     {
+        $commandParam = array(
+            '-sDEVICE=pdfwrite',
+            '-dNOPAUSE',
+            '-dBATCH',
+            '-dSAFER',
+            '-sOutputFile=' . $destination,
+        );
+        
+        if($pageQuantity !== null && $pageStart !== null){
+            $commandParam[] = sprintf('-dFirstPage=%d', $pageStart);
+            $commandParam[] = sprintf('-dLastPage=%d', ($pageStart + $pageQuantity - 1));
+        }
+        $commandParam[] = $input;   
+        
         try {
-            $this->command(array(
-                '-sDEVICE=pdfwrite',
-                '-dNOPAUSE',
-                '-dBATCH',
-                '-dSAFER',
-                sprintf('-dFirstPage=%d', $pageStart),
-                sprintf('-dLastPage=%d', ($pageStart + $pageQuantity - 1)),
-                '-sOutputFile=' . $destination,
-                $input,
-            ));
+            $this->command($commandParam);
         } catch (ExecutionFailureException $e) {
             throw new RuntimeException('Ghostscript was unable to transcode to PDF', $e->getCode(), $e);
         }
