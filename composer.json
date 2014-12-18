@@ -1,7 +1,7 @@
 {
-    "name": "meyfarth/ghostscript",
+    "name": "alanmastro/ghostscript",
     "type": "library",
-    "description": "Forked and enhanced version of alchemy/ghostscript script",
+    "description": "Bugfixed version of Meyfarth/Ghostscript-PHP script",
     "keywords": ["ghostscript", "pdf"],
     "license": "MIT",
     "authors": [
