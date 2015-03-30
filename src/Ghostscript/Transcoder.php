@@ -51,9 +51,9 @@ class Transcoder extends AbstractBinary
     }
 
     /**
-     * Transcode a PDF to another PDF
+     * Transcode PDFs to another PDF
      *
-     * @param string  $input        The path to the input file.
+     * @param mixed   $input        The path(s) to the input file(s).
      * @param string  $destination  The path to the output file.
      * @param integer $pageStart    The number of the first page.
      * @param integer $pageQuantity The number of page to include.
@@ -64,6 +64,10 @@ class Transcoder extends AbstractBinary
      */
     public function toPDF($input, $destination, $pageStart = null, $pageQuantity = null)
     {
+        if (!is_array($input)) {
+            $input = array($input);
+        }
+
         $commandParam = array(
             '-sDEVICE=pdfwrite',
             '-dNOPAUSE',
@@ -76,7 +80,7 @@ class Transcoder extends AbstractBinary
             $commandParam[] = sprintf('-dFirstPage=%d', $pageStart);
             $commandParam[] = sprintf('-dLastPage=%d', ($pageStart + $pageQuantity - 1));
         }
-        $commandParam[] = $input;   
+        $commandParam = array_merge($commandParam, $input);
         
         try {
             $this->command($commandParam);

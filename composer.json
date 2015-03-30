@@ -1,7 +1,7 @@
 {
-    "name": "alanmastro/ghostscript",
+    "name": "ministryofjustice/ghostscript",
     "type": "library",
-    "description": "Bugfixed version of Meyfarth/Ghostscript-PHP script",
+    "description": "Bug-fixed and updated version of Meyfarth/Ghostscript-PHP script",
     "keywords": ["ghostscript", "pdf"],
     "license": "MIT",
     "authors": [
@@ -18,6 +18,10 @@
         {
             "name": "Sébastien GARCIA",
             "email" : "garcia.sebastien@hotmail.fr"
+        },
+        {
+            "name": "Dave Nash",
+            "email" : "dave.nash@teaandcode.com"
         }
     ],
     "require": {
